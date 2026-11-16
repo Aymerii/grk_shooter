@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://drnrp3y0lgxpd"]
+
+[ext_resource type="Script" uid="uid://dikcslhiv7dg4" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+
+[node name="MainMenu" type="Control" unique_id=1376101388]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6cm7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=66290934]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = -55.5
+offset_right = 48.5
+offset_bottom = 55.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 9
+
+[node name="ButtonSurvival" type="Button" parent="VBoxContainer" unique_id=1405103742]
+layout_mode = 2
+text = "SURVIE"
+
+[node name="ButtonCampaign" type="Button" parent="VBoxContainer" unique_id=1785920103]
+layout_mode = 2
+text = "CAMPAGNE"
+
+[node name="ButtonExit" type="Button" parent="VBoxContainer" unique_id=832227245]
+layout_mode = 2
+text = "QUITTER"
+
+[connection signal="pressed" from="VBoxContainer/ButtonSurvival" to="." method="_on_button_survival_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonCampaign" to="." method="_on_button_campaign_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonExit" to="." method="_on_button_exit_pressed"]

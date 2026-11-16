@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://dqj1563wkpedw"]
+
+[ext_resource type="Script" uid="uid://dielpllihhofp" path="res://scripts/enemy.gd" id="1_4ra3w"]
+[ext_resource type="Texture2D" uid="uid://fv2lmikjtaky" path="res://assets/monsters/ratman/face/ratman_attack1.png" id="2_j0cyh"]
+[ext_resource type="AudioStream" uid="uid://d288572pv8v83" path="res://assets/sons/monster_die.wav" id="3_4ra3w"]
+[ext_resource type="Texture2D" uid="uid://cu2ddycwgdapc" path="res://assets/monsters/ratman/face/ratman_attack2.png" id="3_g0wcc"]
+[ext_resource type="Texture2D" uid="uid://2ioglcjlfwej" path="res://assets/monsters/ratman/death/ratman_death1.png" id="4_s1ycm"]
+[ext_resource type="Texture2D" uid="uid://dyb0wjyf56avu" path="res://assets/monsters/ratman/death/ratman_death2.png" id="5_shcg2"]
+[ext_resource type="Texture2D" uid="uid://ur8h3eshw7ao" path="res://assets/monsters/ratman/death/ratman_death3.png" id="6_ile5s"]
+[ext_resource type="Texture2D" uid="uid://cyif2iwrub11k" path="res://assets/monsters/ratman/death/ratman_death4.png" id="7_1x4g4"]
+[ext_resource type="Texture2D" uid="uid://crgxoqt1rg7d2" path="res://assets/monsters/ratman/death/ratman_death5.png" id="8_2pwtc"]
+[ext_resource type="Texture2D" uid="uid://bkelg7l4x3hn5" path="res://assets/monsters/ratman/death/ratman_death6.png" id="9_rogs8"]
+[ext_resource type="Texture2D" uid="uid://bode1er2bvp1r" path="res://assets/monsters/ratman/face/ratman_idle1.png" id="10_g0wcc"]
+[ext_resource type="Texture2D" uid="uid://b0d87xm6o43dy" path="res://assets/monsters/ratman/face/ratman_walk1.png" id="10_wrm80"]
+[ext_resource type="Texture2D" uid="uid://dwx7seumms3mv" path="res://assets/monsters/ratman/face/ratman_walk2.png" id="11_6awcb"]
+[ext_resource type="Texture2D" uid="uid://c4re5icmdlihk" path="res://assets/monsters/ratman/face/ratman_walk3.png" id="12_wjec0"]
+[ext_resource type="Texture2D" uid="uid://kgpl8vaq4gxh" path="res://assets/monsters/ratman/face/ratman_walk4.png" id="13_i4rgx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_riqys"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhunq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_j0cyh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g0wcc")
+}],
+"loop": 0,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_s1ycm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_shcg2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ile5s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1x4g4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2pwtc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_rogs8")
+}],
+"loop": 0,
+"name": &"death",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_g0wcc")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_wrm80")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_6awcb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_wjec0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_i4rgx")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 6.0
+}]
+
+[node name="Enemy" type="CharacterBody3D" unique_id=1361488579 groups=["enemy"]]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_4ra3w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=718028856]
+transform = Transform3D(0.99996907, 0.0066856164, -0.004144943, -0.0066704433, 0.99997103, 0.0036621112, 0.0041693165, -0.0036343373, 0.99998474, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_riqys")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1923380524]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019, 0.88, 0)
+pixel_size = 0.028
+billboard = 2
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_bhunq")
+animation = &"idle"
+autoplay = "walk"
+
+[node name="DeathSound" type="AudioStreamPlayer3D" parent="." unique_id=1192609013]
+stream = ExtResource("3_4ra3w")
+unit_size = 2.0
+bus = &"Sfx"
+
+[node name="EyePosition" type="Marker3D" parent="." unique_id=132461457]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="HitFlashTimer" type="Timer" parent="." unique_id=1275469281]
+wait_time = 0.1
+one_shot = true
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=1131765482]
+wait_time = 1.5
+one_shot = true
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1340211178]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+billboard = 1
+modulate = Color(1, 0, 0, 1)
+text = "test"
+font_size = 106
+
+[connection signal="timeout" from="HitFlashTimer" to="." method="_on_hit_flash_timer_timeout"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

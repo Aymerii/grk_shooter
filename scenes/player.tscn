@@ -1,0 +1,176 @@
+[gd_scene format=3 uid="uid://7jxb32lyg5ol"]
+
+[ext_resource type="Script" uid="uid://c45yq3t5njysn" path="res://scripts/player.gd" id="1_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://cgyt3g30v4wtq" path="res://assets/weapons/Glock/GLOCK_0001.png" id="2_dqkch"]
+[ext_resource type="AudioStream" uid="uid://ccvlo3pqmh8s7" path="res://assets/sons/revolver_shot1.wav" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://j5wy0nf4qoen" path="res://assets/weapons/Glock/GLOCK_0002.png" id="3_ur7pv"]
+[ext_resource type="Texture2D" uid="uid://bc1eok8fco8en" path="res://assets/weapons/Glock/GLOCK_0003.png" id="4_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://l2gtsf74bajp" path="res://assets/weapons/Glock/GLOCK_0004.png" id="5_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://m2o6112gmhni" path="res://assets/weapons/Glock/GLOCK_0005.png" id="6_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://dblq3whw61ysg" path="res://assets/weapons/Glock/GLOCK_0006.png" id="7_jej6c"]
+[ext_resource type="Texture2D" uid="uid://b74v6q34scclr" path="res://assets/weapons/Glock/GLOCK_0007.png" id="8_f1ej7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ur7pv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dqkch")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ur7pv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_y4r1p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_d2wvv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3v2ag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jej6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_f1ej7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_d2wvv")
+}],
+"loop": 0,
+"name": &"shoot",
+"speed": 15.0
+}]
+
+[node name="Player" type="CharacterBody3D" unique_id=1422797493 groups=["player"]]
+process_mode = 1
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_qhqgy")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1718465257]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=1094371375]
+target_position = Vector3(0, 0, -1000)
+collision_mask = 3
+debug_shape_custom_color = Color(1, 1, 1, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=433295341]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_u8vuu")
+
+[node name="EyePosition" type="Marker3D" parent="." unique_id=1267038876]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=584338105]
+
+[node name="GunBase" type="Control" parent="CanvasLayer" unique_id=1921516641]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/GunBase" unique_id=909679368]
+texture_filter = 1
+position = Vector2(18, -173.00002)
+scale = Vector2(1.6650391, 1.6601561)
+sprite_frames = SubResource("SpriteFrames_ur7pv")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="AmmoLabel" type="Label" parent="CanvasLayer/GunBase" unique_id=1319061263]
+layout_mode = 0
+offset_right = 89.0
+offset_bottom = 23.0
+
+[node name="Crosshair" type="ColorRect" parent="CanvasLayer" unique_id=1986824611]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -4.0
+offset_right = 3.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1.3262677, 0, 0, 0.58431375)
+
+[node name="DeathScreen" type="Control" parent="CanvasLayer" unique_id=832562150]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/DeathScreen" unique_id=1301363667]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -46.0
+offset_right = 105.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/DeathScreen/Panel" unique_id=1616994506]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -39.0
+offset_right = 38.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You died !"
+
+[node name="Button" type="Button" parent="CanvasLayer/DeathScreen/Panel" unique_id=1375561727]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -38.0
+offset_right = 33.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Restart"
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="." unique_id=68152965]
+stream = ExtResource("3_qhqgy")
+bus = &"Sfx"

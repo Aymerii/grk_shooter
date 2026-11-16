@@ -1,0 +1,416 @@
+[gd_scene format=3 uid="uid://h8xib7gair0k"]
+
+[ext_resource type="Script" uid="uid://brkl67bvju1wq" path="res://scripts/campaign.gd" id="1_8c0w4"]
+[ext_resource type="Texture2D" uid="uid://b53i7e7xkr4gn" path="res://assets/environment/floor_wood_planks.png" id="2_giq8n"]
+[ext_resource type="PackedScene" uid="uid://7jxb32lyg5ol" path="res://scenes/player.tscn" id="4_22kpy"]
+[ext_resource type="PackedScene" uid="uid://dqj1563wkpedw" path="res://scenes/enemy.tscn" id="5_4qwaf"]
+
+[sub_resource type="Environment" id="Environment_riqys"]
+background_mode = 1
+background_color = Color(0.69135684, 0.6913568, 0.69135684, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8c0w4"]
+albedo_texture = ExtResource("2_giq8n")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bhunq"]
+size = Vector3(23, 3, 15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_riqys"]
+size = Vector3(31, 3, 15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sn0t7"]
+size = Vector3(7, 3, 5.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6f8o3"]
+size = Vector3(11, 3, 15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qr0ht"]
+size = Vector3(11, 3, 15)
+
+[node name="Campaign" type="Node3D" unique_id=625404989]
+script = ExtResource("1_8c0w4")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=832344726]
+environment = SubResource("Environment_riqys")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=488679514]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 224.15907, 0)
+
+[node name="Environment" type="Node3D" parent="." unique_id=1885929912]
+
+[node name="Sol" type="CSGBox3D" parent="Environment" unique_id=19926116]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = SubResource("StandardMaterial3D_8c0w4")
+use_collision = true
+size = Vector3(80, 1, 80)
+
+[node name="Salle1" type="Node3D" parent="Environment" unique_id=1341507788]
+
+[node name="S1_Sud" type="CSGBox3D" parent="Environment/Salle1" unique_id=337889748]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 30)
+use_collision = true
+size = Vector3(16, 3, 1)
+
+[node name="S1_Ouest" type="CSGBox3D" parent="Environment/Salle1" unique_id=1800670908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.5, 24)
+use_collision = true
+size = Vector3(1, 3, 12)
+
+[node name="S1_Est" type="CSGBox3D" parent="Environment/Salle1" unique_id=1274265672]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1.5, 24)
+use_collision = true
+size = Vector3(1, 3, 12)
+
+[node name="S1_Nord_G" type="CSGBox3D" parent="Environment/Salle1" unique_id=2022456540]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.5, 18)
+use_collision = true
+size = Vector3(6, 3, 1)
+
+[node name="S1_Nord_D" type="CSGBox3D" parent="Environment/Salle1" unique_id=977485246]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, 18)
+use_collision = true
+size = Vector3(6, 3, 1)
+
+[node name="Couloir1" type="Node3D" parent="Environment" unique_id=717885954]
+
+[node name="C1_Ouest" type="CSGBox3D" parent="Environment/Couloir1" unique_id=1529070090]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 13)
+use_collision = true
+size = Vector3(1, 3, 10)
+
+[node name="C1_Est" type="CSGBox3D" parent="Environment/Couloir1" unique_id=1619496433]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, 13)
+use_collision = true
+size = Vector3(1, 3, 10)
+
+[node name="Salle2" type="Node3D" parent="Environment" unique_id=31570034]
+
+[node name="S2_Sud_G" type="CSGBox3D" parent="Environment/Salle2" unique_id=495998343]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1.5, 8)
+use_collision = true
+size = Vector3(10, 3, 1)
+
+[node name="S2_Sud_D" type="CSGBox3D" parent="Environment/Salle2" unique_id=916521744]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 6.9999995, 1.1736383, 7.9999995)
+use_collision = true
+size = Vector3(10, 3, 1)
+
+[node name="S2_Ouest_N" type="CSGBox3D" parent="Environment/Salle2" unique_id=1418348798]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 1.5, -5)
+use_collision = true
+size = Vector3(1, 3, 6)
+
+[node name="S2_Ouest_S" type="CSGBox3D" parent="Environment/Salle2" unique_id=498903225]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 1.5, 5)
+use_collision = true
+size = Vector3(1, 3, 6)
+
+[node name="S2_Est_N" type="CSGBox3D" parent="Environment/Salle2" unique_id=393239126]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1.5, -5)
+use_collision = true
+size = Vector3(1, 3, 6)
+
+[node name="S2_Est_S" type="CSGBox3D" parent="Environment/Salle2" unique_id=1810044728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1.5, 5)
+use_collision = true
+size = Vector3(1, 3, 6)
+
+[node name="S2_Nord_G" type="CSGBox3D" parent="Environment/Salle2" unique_id=1288209972]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1.5, -8)
+use_collision = true
+size = Vector3(10, 3, 1)
+
+[node name="S2_Nord_D" type="CSGBox3D" parent="Environment/Salle2" unique_id=1417949591]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.5, -8)
+use_collision = true
+size = Vector3(10, 3, 1)
+
+[node name="S2_Caisse" type="CSGBox3D" parent="Environment/Salle2" unique_id=1903028992]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.5, 2)
+use_collision = true
+size = Vector3(2, 3, 2)
+
+[node name="Zone1" type="Area3D" parent="Environment/Salle2" unique_id=1529906313]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Salle2/Zone1" unique_id=1357040862]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_bhunq")
+
+[node name="Couloir2" type="Node3D" parent="Environment" unique_id=1233555655]
+
+[node name="C2_Ouest" type="CSGBox3D" parent="Environment/Couloir2" unique_id=490264466]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, -12)
+use_collision = true
+size = Vector3(1, 3, 8)
+
+[node name="C2_Est" type="CSGBox3D" parent="Environment/Couloir2" unique_id=1612952688]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, -12)
+use_collision = true
+size = Vector3(1, 3, 8)
+
+[node name="Salle3" type="Node3D" parent="Environment" unique_id=2051146472]
+
+[node name="S3_Sud_G" type="CSGBox3D" parent="Environment/Salle3" unique_id=106460764]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 1.5, -16)
+use_collision = true
+size = Vector3(14, 3, 1)
+
+[node name="S3_Sud_D" type="CSGBox3D" parent="Environment/Salle3" unique_id=1633498124]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.5, -16)
+use_collision = true
+size = Vector3(14, 3, 1)
+
+[node name="S3_Ouest_N" type="CSGBox3D" parent="Environment/Salle3" unique_id=1537813645]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 1.5, -29)
+use_collision = true
+size = Vector3(1, 3, 6)
+
+[node name="S3_Ouest_S" type="CSGBox3D" parent="Environment/Salle3" unique_id=1312678880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 1.5, -19)
+use_collision = true
+size = Vector3(1, 3, 6)
+
+[node name="S3_Est_N" type="CSGBox3D" parent="Environment/Salle3" unique_id=362935816]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 1.5, -29)
+use_collision = true
+size = Vector3(1, 3, 6)
+
+[node name="S3_Est_S" type="CSGBox3D" parent="Environment/Salle3" unique_id=2115347099]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 1.5, -19)
+use_collision = true
+size = Vector3(1, 3, 6)
+
+[node name="S3_Nord_G" type="CSGBox3D" parent="Environment/Salle3" unique_id=1643869882]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1.5, -32)
+use_collision = true
+size = Vector3(12, 3, 1)
+
+[node name="S3_Nord_D" type="CSGBox3D" parent="Environment/Salle3" unique_id=340762452]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.5, -32)
+use_collision = true
+size = Vector3(12, 3, 1)
+
+[node name="S3_Pillier" type="CSGBox3D" parent="Environment/Salle3" unique_id=635439556]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -24)
+use_collision = true
+size = Vector3(4, 3, 4)
+
+[node name="Zone2" type="Area3D" parent="Environment/Salle3" unique_id=1528281069]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Salle3/Zone2" unique_id=946006780]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -24)
+shape = SubResource("BoxShape3D_riqys")
+
+[node name="Sortie" type="Node3D" parent="Environment" unique_id=1380910154]
+
+[node name="Sortie_Ouest" type="CSGBox3D" parent="Environment/Sortie" unique_id=379843605]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.5, -35)
+use_collision = true
+size = Vector3(1, 3, 6)
+
+[node name="Sortie_Est" type="CSGBox3D" parent="Environment/Sortie" unique_id=741629580]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.5, -35)
+use_collision = true
+size = Vector3(1, 3, 6)
+
+[node name="Sortie_Nord" type="CSGBox3D" parent="Environment/Sortie" unique_id=1287264829]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -38)
+use_collision = true
+size = Vector3(8, 3, 1)
+
+[node name="FinNiveau" type="Area3D" parent="Environment/Sortie" unique_id=2142902425]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Sortie/FinNiveau" unique_id=1398004522]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -34.75)
+shape = SubResource("BoxShape3D_sn0t7")
+
+[node name="Couloir Est 1" type="Node3D" parent="Environment" unique_id=584017790]
+
+[node name="CE1_N" type="CSGBox3D" parent="Environment/Couloir Est 1" unique_id=672094287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 1.5, -2)
+use_collision = true
+size = Vector3(8, 3, 1)
+
+[node name="CE1_S" type="CSGBox3D" parent="Environment/Couloir Est 1" unique_id=2068861589]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 1.5, 2)
+use_collision = true
+size = Vector3(8, 3, 1)
+
+[node name="Salle Est" type="Node3D" parent="Environment" unique_id=814572616]
+
+[node name="SE_Ouest_N" type="CSGBox3D" parent="Environment/Salle Est" unique_id=1716879415]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1.5, -6)
+use_collision = true
+size = Vector3(1, 3, 8)
+
+[node name="SE_Ouest_S" type="CSGBox3D" parent="Environment/Salle Est" unique_id=20961780]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1.5, 4)
+use_collision = true
+size = Vector3(1, 3, 4)
+
+[node name="SE_Est" type="CSGBox3D" parent="Environment/Salle Est" unique_id=2009521243]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 1.5, -2)
+use_collision = true
+size = Vector3(1, 3, 16)
+
+[node name="SE_Sud" type="CSGBox3D" parent="Environment/Salle Est" unique_id=1434224206]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 1.5, 6)
+use_collision = true
+size = Vector3(12, 3, 1)
+
+[node name="SE_Nord_G" type="CSGBox3D" parent="Environment/Salle Est" unique_id=1351743200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 1.5, -10)
+use_collision = true
+size = Vector3(4, 3, 1)
+
+[node name="SE_Nord_D" type="CSGBox3D" parent="Environment/Salle Est" unique_id=147982429]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 1.5, -10)
+use_collision = true
+size = Vector3(4, 3, 1)
+
+[node name="Zone salle est" type="Area3D" parent="Environment/Salle Est" unique_id=998613871]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 1.5, -2)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Salle Est/Zone salle est" unique_id=700079318]
+shape = SubResource("BoxShape3D_6f8o3")
+
+[node name="Couloir Est 2" type="Node3D" parent="Environment" unique_id=1944266583]
+
+[node name="CE2_Ext_Long" type="CSGBox3D" parent="Environment/Couloir Est 2" unique_id=496918055]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 1.5, -18)
+use_collision = true
+size = Vector3(1, 3, 16)
+
+[node name="CE2_Ext_Court" type="CSGBox3D" parent="Environment/Couloir Est 2" unique_id=1409846329]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 1.5, -26)
+use_collision = true
+size = Vector3(12, 3, 1)
+
+[node name="CE2_Int_Long" type="CSGBox3D" parent="Environment/Couloir Est 2" unique_id=1985516003]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 1.5, -16)
+use_collision = true
+size = Vector3(1, 3, 12)
+
+[node name="CE2_Int_Court" type="CSGBox3D" parent="Environment/Couloir Est 2" unique_id=2088183285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 1.5, -22)
+use_collision = true
+size = Vector3(8, 3, 1)
+
+[node name="Couloir Ouest" type="Node3D" parent="Environment" unique_id=1877361845]
+
+[node name="CO1_N" type="CSGBox3D" parent="Environment/Couloir Ouest" unique_id=1096423714]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 1.5, -2)
+use_collision = true
+size = Vector3(8, 3, 1)
+
+[node name="CO1_S" type="CSGBox3D" parent="Environment/Couloir Ouest" unique_id=1205570223]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 1.5, 2)
+use_collision = true
+size = Vector3(8, 3, 1)
+
+[node name="Salle Ouest" type="Node3D" parent="Environment" unique_id=1962137914]
+
+[node name="SO_Est_N" type="CSGBox3D" parent="Environment/Salle Ouest" unique_id=968137897]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 1.5, -6)
+use_collision = true
+size = Vector3(1, 3, 8)
+
+[node name="SO_Est_S" type="CSGBox3D" parent="Environment/Salle Ouest" unique_id=1164508444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 1.5, 4)
+use_collision = true
+size = Vector3(1, 3, 4)
+
+[node name="SO_Ouest" type="CSGBox3D" parent="Environment/Salle Ouest" unique_id=268463065]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 1.5, -2)
+use_collision = true
+size = Vector3(1, 3, 16)
+
+[node name="SO_Sud" type="CSGBox3D" parent="Environment/Salle Ouest" unique_id=426560807]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 1.5, 6)
+use_collision = true
+size = Vector3(12, 3, 1)
+
+[node name="SO_Nord_D" type="CSGBox3D" parent="Environment/Salle Ouest" unique_id=1594990244]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 1.5, -10)
+use_collision = true
+size = Vector3(4, 3, 1)
+
+[node name="SO_Nord_G" type="CSGBox3D" parent="Environment/Salle Ouest" unique_id=1833822796]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 1.5, -10)
+use_collision = true
+size = Vector3(4, 3, 1)
+
+[node name="Zone salle Ouest" type="Area3D" parent="Environment/Salle Ouest" unique_id=1081642500]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 1.5, -2)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Salle Ouest/Zone salle Ouest" unique_id=2055543782]
+shape = SubResource("BoxShape3D_qr0ht")
+
+[node name="Couloir Ouest 2" type="Node3D" parent="Environment" unique_id=84065157]
+
+[node name="CO2_Ext_Long" type="CSGBox3D" parent="Environment/Couloir Ouest 2" unique_id=306181675]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 1.5, -18)
+use_collision = true
+size = Vector3(1, 3, 16)
+
+[node name="CO2_Ext_Court" type="CSGBox3D" parent="Environment/Couloir Ouest 2" unique_id=397161864]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 1.5, -26)
+use_collision = true
+size = Vector3(12, 3, 1)
+
+[node name="CO2_Int_Long" type="CSGBox3D" parent="Environment/Couloir Ouest 2" unique_id=452586905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 1.5, -16)
+use_collision = true
+size = Vector3(1, 3, 12)
+
+[node name="CO2_Int_Court" type="CSGBox3D" parent="Environment/Couloir Ouest 2" unique_id=1554289519]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 1.5, -22)
+use_collision = true
+size = Vector3(8, 3, 1)
+
+[node name="Player" parent="." unique_id=1422797493 instance=ExtResource("4_22kpy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 26)
+
+[node name="Enemy" type="Node3D" parent="." unique_id=715043901]
+
+[node name="Enemy1" parent="Enemy" unique_id=1361488579 node_paths=PackedStringArray("zone") instance=ExtResource("5_4qwaf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -3)
+mode_jeu = "campagne"
+zone = NodePath("../../Environment/Salle2/Zone1")
+
+[node name="Enemy2" parent="Enemy" unique_id=1304509858 node_paths=PackedStringArray("zone") instance=ExtResource("5_4qwaf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -4)
+mode_jeu = "campagne"
+zone = NodePath("../../Environment/Salle2/Zone1")
+
+[node name="Enemy3" parent="Enemy" unique_id=403783104 node_paths=PackedStringArray("zone") instance=ExtResource("5_4qwaf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -22)
+mode_jeu = "campagne"
+zone = NodePath("../../Environment/Salle3/Zone2")
+
+[node name="Enemy4" parent="Enemy" unique_id=2044139982 node_paths=PackedStringArray("zone") instance=ExtResource("5_4qwaf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -27)
+mode_jeu = "campagne"
+zone = NodePath("../../Environment/Salle3/Zone2")
+
+[node name="Enemy5" parent="Enemy" unique_id=435465654 node_paths=PackedStringArray("zone") instance=ExtResource("5_4qwaf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -35)
+mode_jeu = "campagne"
+zone = NodePath("../../Environment/Salle3/Zone2")
+
+[node name="Enemy6" parent="Enemy" unique_id=126128581 node_paths=PackedStringArray("zone") instance=ExtResource("5_4qwaf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, -2)
+mode_jeu = "campagne"
+zone = NodePath("../../Environment/Salle Est/Zone salle est")
+
+[node name="Enemy7" parent="Enemy" unique_id=842452079 node_paths=PackedStringArray("zone") instance=ExtResource("5_4qwaf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -2)
+mode_jeu = "campagne"
+zone = NodePath("../../Environment/Salle Ouest/Zone salle Ouest")

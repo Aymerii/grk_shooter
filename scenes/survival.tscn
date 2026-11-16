@@ -1,0 +1,307 @@
+[gd_scene format=3 uid="uid://dmtfin4y38nxa"]
+
+[ext_resource type="Texture2D" uid="uid://c4pvh85vx0s14" path="res://assets/environment/floor_ground_grass.png" id="1_4wyf3"]
+[ext_resource type="PackedScene" uid="uid://7jxb32lyg5ol" path="res://scenes/player.tscn" id="1_nnsk1"]
+[ext_resource type="Script" uid="uid://pfcfih1gvb26" path="res://scripts/survival.gd" id="1_qfnet"]
+[ext_resource type="Texture2D" uid="uid://bawkhlr17rfhh" path="res://assets/environment/wall_brick_stone_center_depth.png" id="2_k0juu"]
+[ext_resource type="Texture2D" uid="uid://bo54lmkjivj6a" path="res://assets/environment/floor_wood_planks_wide.png" id="4_4mrxx"]
+[ext_resource type="Texture2D" uid="uid://uk28at6ef5ot" path="res://assets/environment/floor_stone_sand_random_depth.png" id="5_7r4gi"]
+[ext_resource type="Texture2D" uid="uid://d1ym78e0fuat7" path="res://assets/environment/floor_tiles_blue_small.png" id="6_w7kh3"]
+[ext_resource type="Texture2D" uid="uid://0vw5sgb1uq1e" path="res://assets/environment/floor_tiles_tan_large.png" id="7_e3hyu"]
+
+[sub_resource type="Environment" id="Environment_e5uuo"]
+background_mode = 1
+background_color = Color(0.6996495, 0.6996551, 0.6996524, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k0juu"]
+albedo_texture = ExtResource("1_4wyf3")
+uv1_scale = Vector3(250, 250, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nnsk1"]
+size = Vector2(5, 5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4wyf3"]
+data = PackedVector3Array(2.5, 0, 2.5, -2.5, 0, 2.5, 2.5, 0, -2.5, -2.5, 0, 2.5, -2.5, 0, -2.5, 2.5, 0, -2.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_71j4m"]
+albedo_texture = ExtResource("2_k0juu")
+uv1_scale = Vector3(40, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qfnet"]
+size = Vector3(40.273193, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4wyf3"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qfnet"]
+data = PackedVector3Array(-18.1675, 0.5, 0.5, 18.1675, 0.5, 0.5, -18.1675, -0.5, 0.5, 18.1675, 0.5, 0.5, 18.1675, -0.5, 0.5, -18.1675, -0.5, 0.5, 18.1675, 0.5, -0.5, -18.1675, 0.5, -0.5, 18.1675, -0.5, -0.5, -18.1675, 0.5, -0.5, -18.1675, -0.5, -0.5, 18.1675, -0.5, -0.5, 18.1675, 0.5, 0.5, 18.1675, 0.5, -0.5, 18.1675, -0.5, 0.5, 18.1675, 0.5, -0.5, 18.1675, -0.5, -0.5, 18.1675, -0.5, 0.5, -18.1675, 0.5, -0.5, -18.1675, 0.5, 0.5, -18.1675, -0.5, -0.5, -18.1675, 0.5, 0.5, -18.1675, -0.5, 0.5, -18.1675, -0.5, -0.5, 18.1675, 0.5, 0.5, -18.1675, 0.5, 0.5, 18.1675, 0.5, -0.5, -18.1675, 0.5, 0.5, -18.1675, 0.5, -0.5, 18.1675, 0.5, -0.5, -18.1675, -0.5, 0.5, 18.1675, -0.5, 0.5, -18.1675, -0.5, -0.5, 18.1675, -0.5, 0.5, 18.1675, -0.5, -0.5, -18.1675, -0.5, -0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4mrxx"]
+data = PackedVector3Array(-18.1675, 0.5, 0.5, 18.1675, 0.5, 0.5, -18.1675, -0.5, 0.5, 18.1675, 0.5, 0.5, 18.1675, -0.5, 0.5, -18.1675, -0.5, 0.5, 18.1675, 0.5, -0.5, -18.1675, 0.5, -0.5, 18.1675, -0.5, -0.5, -18.1675, 0.5, -0.5, -18.1675, -0.5, -0.5, 18.1675, -0.5, -0.5, 18.1675, 0.5, 0.5, 18.1675, 0.5, -0.5, 18.1675, -0.5, 0.5, 18.1675, 0.5, -0.5, 18.1675, -0.5, -0.5, 18.1675, -0.5, 0.5, -18.1675, 0.5, -0.5, -18.1675, 0.5, 0.5, -18.1675, -0.5, -0.5, -18.1675, 0.5, 0.5, -18.1675, -0.5, 0.5, -18.1675, -0.5, -0.5, 18.1675, 0.5, 0.5, -18.1675, 0.5, 0.5, 18.1675, 0.5, -0.5, -18.1675, 0.5, 0.5, -18.1675, 0.5, -0.5, 18.1675, 0.5, -0.5, -18.1675, -0.5, 0.5, 18.1675, -0.5, 0.5, -18.1675, -0.5, -0.5, 18.1675, -0.5, 0.5, 18.1675, -0.5, -0.5, -18.1675, -0.5, -0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_i7141"]
+data = PackedVector3Array(-18.1675, 0.5, 0.5, 18.1675, 0.5, 0.5, -18.1675, -0.5, 0.5, 18.1675, 0.5, 0.5, 18.1675, -0.5, 0.5, -18.1675, -0.5, 0.5, 18.1675, 0.5, -0.5, -18.1675, 0.5, -0.5, 18.1675, -0.5, -0.5, -18.1675, 0.5, -0.5, -18.1675, -0.5, -0.5, 18.1675, -0.5, -0.5, 18.1675, 0.5, 0.5, 18.1675, 0.5, -0.5, 18.1675, -0.5, 0.5, 18.1675, 0.5, -0.5, 18.1675, -0.5, -0.5, 18.1675, -0.5, 0.5, -18.1675, 0.5, -0.5, -18.1675, 0.5, 0.5, -18.1675, -0.5, -0.5, -18.1675, 0.5, 0.5, -18.1675, -0.5, 0.5, -18.1675, -0.5, -0.5, 18.1675, 0.5, 0.5, -18.1675, 0.5, 0.5, 18.1675, 0.5, -0.5, -18.1675, 0.5, 0.5, -18.1675, 0.5, -0.5, 18.1675, 0.5, -0.5, -18.1675, -0.5, 0.5, 18.1675, -0.5, 0.5, -18.1675, -0.5, -0.5, 18.1675, -0.5, 0.5, 18.1675, -0.5, -0.5, -18.1675, -0.5, -0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7r4gi"]
+data = PackedVector3Array(-18.1675, 0.5, 0.5, 18.1675, 0.5, 0.5, -18.1675, -0.5, 0.5, 18.1675, 0.5, 0.5, 18.1675, -0.5, 0.5, -18.1675, -0.5, 0.5, 18.1675, 0.5, -0.5, -18.1675, 0.5, -0.5, 18.1675, -0.5, -0.5, -18.1675, 0.5, -0.5, -18.1675, -0.5, -0.5, 18.1675, -0.5, -0.5, 18.1675, 0.5, 0.5, 18.1675, 0.5, -0.5, 18.1675, -0.5, 0.5, 18.1675, 0.5, -0.5, 18.1675, -0.5, -0.5, 18.1675, -0.5, 0.5, -18.1675, 0.5, -0.5, -18.1675, 0.5, 0.5, -18.1675, -0.5, -0.5, -18.1675, 0.5, 0.5, -18.1675, -0.5, 0.5, -18.1675, -0.5, -0.5, 18.1675, 0.5, 0.5, -18.1675, 0.5, 0.5, 18.1675, 0.5, -0.5, -18.1675, 0.5, 0.5, -18.1675, 0.5, -0.5, 18.1675, 0.5, -0.5, -18.1675, -0.5, 0.5, 18.1675, -0.5, 0.5, -18.1675, -0.5, -0.5, 18.1675, -0.5, 0.5, 18.1675, -0.5, -0.5, -18.1675, -0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q5onr"]
+albedo_texture = ExtResource("4_4mrxx")
+uv1_scale = Vector3(1, 3, 2)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_7r4gi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e3hyu"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_k0juu"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhx03"]
+albedo_texture = ExtResource("5_7r4gi")
+uv1_scale = Vector3(2, 3, 1)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_4wyf3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7kh3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8fc1"]
+albedo_texture = ExtResource("6_w7kh3")
+uv1_scale = Vector3(2, 3, 1)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xo05s"]
+albedo_texture = ExtResource("7_e3hyu")
+uv1_scale = Vector3(2, 3, 2)
+uv1_triplanar = true
+
+[node name="Survival" type="Node3D" unique_id=656186360]
+process_mode = 3
+script = ExtResource("1_qfnet")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1118284792]
+environment = SubResource("Environment_e5uuo")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=1541013357]
+transform = Transform3D(1, 0, 0, 0, 0.8211492, 0.5707136, 0, -0.5707136, 0.8211492, -1.0673256, 7.5510178, 0)
+shadow_enabled = true
+
+[node name="Environment" type="Node3D" parent="." unique_id=1766525728]
+
+[node name="Ground" type="MeshInstance3D" parent="Environment" unique_id=1692775480]
+transform = Transform3D(34.89956, 0, 0, 0, 2.908539, 0, 0, 0, 29.105328, 0.0066547394, -0.019594193, 0.006796837)
+material_override = SubResource("StandardMaterial3D_k0juu")
+mesh = SubResource("PlaneMesh_nnsk1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Ground" unique_id=405081856]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Ground/StaticBody3D" unique_id=1082657864]
+shape = SubResource("ConcavePolygonShape3D_4wyf3")
+
+[node name="mur_nord" type="MeshInstance3D" parent="Environment" unique_id=11653017]
+transform = Transform3D(1, 0, 0, 0, 6.2480416, 0, 0, 0, 1, 0, 2.666, -20)
+material_override = SubResource("StandardMaterial3D_71j4m")
+mesh = SubResource("BoxMesh_qfnet")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4wyf3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/mur_nord" unique_id=479515135]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/mur_nord/StaticBody3D" unique_id=1826239568]
+shape = SubResource("ConcavePolygonShape3D_qfnet")
+
+[node name="mur_sud" type="MeshInstance3D" parent="Environment" unique_id=1502684522]
+transform = Transform3D(1, 0, 0, 0, 6.2480416, 0, 0, 0, 1, 0, 2.666, 20)
+material_override = SubResource("StandardMaterial3D_71j4m")
+mesh = SubResource("BoxMesh_qfnet")
+skeleton = NodePath("../Block3")
+surface_material_override/0 = SubResource("StandardMaterial3D_4wyf3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/mur_sud" unique_id=255217692]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/mur_sud/StaticBody3D" unique_id=1270717500]
+shape = SubResource("ConcavePolygonShape3D_4mrxx")
+
+[node name="mur_est" type="MeshInstance3D" parent="Environment" unique_id=1371979958]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 6.2480416, 0, -1, 0, -4.371139e-08, 20, 2.666, 0)
+material_override = SubResource("StandardMaterial3D_71j4m")
+mesh = SubResource("BoxMesh_qfnet")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_4wyf3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/mur_est" unique_id=1359930349]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/mur_est/StaticBody3D" unique_id=645730412]
+shape = SubResource("ConcavePolygonShape3D_i7141")
+
+[node name="mur_ouest" type="MeshInstance3D" parent="Environment" unique_id=1155252929]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 6.2480416, 0, -1, 0, -4.371139e-08, -20, 2.666, 0)
+material_override = SubResource("StandardMaterial3D_71j4m")
+mesh = SubResource("BoxMesh_qfnet")
+skeleton = NodePath("../Block3")
+surface_material_override/0 = SubResource("StandardMaterial3D_4wyf3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/mur_ouest" unique_id=1865180653]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/mur_ouest/StaticBody3D" unique_id=444416688]
+shape = SubResource("ConcavePolygonShape3D_7r4gi")
+
+[node name="Block2" type="MeshInstance3D" parent="Environment" unique_id=1149632295]
+transform = Transform3D(1, 0, 0, 0, 2.4996083, 0, 0, 0, 1, 6.455066, 1.332214, -8.110181)
+material_override = SubResource("StandardMaterial3D_q5onr")
+mesh = SubResource("BoxMesh_7r4gi")
+surface_material_override/0 = SubResource("StandardMaterial3D_e3hyu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Block2" unique_id=383600366]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Block2/StaticBody3D" unique_id=1611054404]
+shape = SubResource("ConcavePolygonShape3D_k0juu")
+
+[node name="Block5" type="MeshInstance3D" parent="Environment" unique_id=1696052066]
+transform = Transform3D(1, 0, 0, 0, 2.4996083, 0, 0, 0, 1, 11.190257, 1.2524287, -2.7482243)
+material_override = SubResource("StandardMaterial3D_jhx03")
+mesh = SubResource("BoxMesh_4wyf3")
+surface_material_override/0 = SubResource("StandardMaterial3D_w7kh3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Block5" unique_id=709090487]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Block5/StaticBody3D" unique_id=999928794]
+shape = SubResource("ConcavePolygonShape3D_k0juu")
+
+[node name="Block6" type="MeshInstance3D" parent="Environment" unique_id=1991592461]
+transform = Transform3D(1, 0, 0, 0, 2.4996083, 0, 0, 0, 1, 4.5021267, 1.2524287, 2.10328)
+material_override = SubResource("StandardMaterial3D_o8fc1")
+mesh = SubResource("BoxMesh_4wyf3")
+surface_material_override/0 = SubResource("StandardMaterial3D_w7kh3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Block6" unique_id=389305520]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Block6/StaticBody3D" unique_id=1042228635]
+shape = SubResource("ConcavePolygonShape3D_k0juu")
+
+[node name="Block3" type="MeshInstance3D" parent="Environment" unique_id=831595547]
+transform = Transform3D(1, 0, 0, 0, 2.4996083, 0, 0, 0, 1, -1.8945346, 1.332214, -4.155638)
+material_override = SubResource("StandardMaterial3D_xo05s")
+mesh = SubResource("BoxMesh_7r4gi")
+surface_material_override/0 = SubResource("StandardMaterial3D_e3hyu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Block3" unique_id=1058247181]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Block3/StaticBody3D" unique_id=1427087373]
+shape = SubResource("ConcavePolygonShape3D_k0juu")
+
+[node name="SpawnPoints" type="Node3D" parent="Environment" unique_id=884469461]
+
+[node name="Spawn1" type="Marker3D" parent="Environment/SpawnPoints" unique_id=1050579466]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.404129, 0, -16.080051)
+
+[node name="Spawn2" type="Marker3D" parent="Environment/SpawnPoints" unique_id=1772595934]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.335318, 0, -16.080051)
+
+[node name="Spawn3" type="Marker3D" parent="Environment/SpawnPoints" unique_id=2036467138]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.404129, 0, 15.817764)
+
+[node name="Spawn4" type="Marker3D" parent="Environment/SpawnPoints" unique_id=2058437560]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.768963, 0, 15.971191)
+
+[node name="Spawn5" type="Marker3D" parent="Environment/SpawnPoints" unique_id=312407195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.404129, 0, 0.10094452)
+
+[node name="Spawn6" type="Marker3D" parent="Environment/SpawnPoints" unique_id=656110046]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.766102, 0, 0.10094452)
+
+[node name="Spawn7" type="Marker3D" parent="Environment/SpawnPoints" unique_id=671701061]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1942215, 0, 15.971191)
+
+[node name="Spawn8" type="Marker3D" parent="Environment/SpawnPoints" unique_id=1663396463]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1942215, 0, -16.103645)
+
+[node name="Player" parent="." unique_id=1115343821 instance=ExtResource("1_nnsk1")]
+
+[node name="HUD_NextWave" type="Control" parent="." unique_id=2025469624]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WaveLabel" type="Label" parent="HUD_NextWave" unique_id=79147236]
+layout_mode = 0
+offset_left = 517.0
+offset_top = 110.0
+offset_right = 631.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+
+[node name="BoostPanel" type="PanelContainer" parent="HUD_NextWave" unique_id=767835309]
+visible = false
+layout_mode = 0
+offset_left = 432.0
+offset_top = 157.0
+offset_right = 720.0
+offset_bottom = 301.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD_NextWave/BoostPanel" unique_id=2069466504]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="BoostTitle" type="Label" parent="HUD_NextWave/BoostPanel/VBoxContainer" unique_id=1744404274]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Choose your upgrade"
+
+[node name="Boost1" type="Button" parent="HUD_NextWave/BoostPanel/VBoxContainer" unique_id=196807389]
+layout_mode = 2
+text = "Augmenter les hp"
+
+[node name="Boost2" type="Button" parent="HUD_NextWave/BoostPanel/VBoxContainer" unique_id=751939449]
+layout_mode = 2
+text = "Augmenter les dégâts"
+
+[node name="Boost3" type="Button" parent="HUD_NextWave/BoostPanel/VBoxContainer" unique_id=1387591763]
+layout_mode = 2
+text = "Augmenter les munitions"
+
+[node name="HUD_InGame" type="Control" parent="." unique_id=4531306]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HpLabel" type="Label" parent="HUD_InGame" unique_id=1988044994]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+
+[node name="ShieldLabel" type="Label" parent="HUD_InGame" unique_id=1636783660]
+layout_mode = 0
+offset_top = 33.0
+offset_right = 40.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(0.047459096, 0.19005978, 0.9999998, 1)
+theme_override_font_sizes/font_size = 20
+
+[node name="DegatLabel" type="Label" parent="HUD_InGame" unique_id=1818432576]
+layout_mode = 0
+offset_top = 65.0
+offset_right = 85.0
+offset_bottom = 93.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 20
+
+[node name="Nbr_enemyLabel" type="Label" parent="HUD_InGame" unique_id=1345569655]
+layout_mode = 0
+offset_left = 525.0
+offset_top = 1.0
+offset_right = 565.0
+offset_bottom = 29.0
+theme_override_colors/font_color = Color(1.5161187e-06, 0.6480731, 0.16167644, 1)
+theme_override_font_sizes/font_size = 20
+
+[connection signal="pressed" from="HUD_NextWave/BoostPanel/VBoxContainer/Boost1" to="." method="_on_boost_1_pressed"]
+[connection signal="pressed" from="HUD_NextWave/BoostPanel/VBoxContainer/Boost2" to="." method="_on_boost_2_pressed"]
+[connection signal="pressed" from="HUD_NextWave/BoostPanel/VBoxContainer/Boost3" to="." method="_on_boost_3_pressed"]
